@@ -1,0 +1,48 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import vm from 'node:vm';
+await import('../public/lesson-voice.js');
+const V=globalThis.SketchlingLessonVoice;
+let utterance=null,errors=0,pauses=0,resumes=0,timer=null;
+class Utterance{constructor(text){this.text=text;}}
+const synth={cancel(){},speak(u){utterance=u;},pause(){pauses++;},resume(){resumes++;}};
+const voice=V.create({synth,Utterance,onError:()=>errors++,setTimer:f=>{timer=f;return 1;},clearTimer:()=>{timer=null;}});
+await voice.speak('Off by default');assert.equal(utterance,null);
+voice.setEnabled(true);let finished=false;
+const first=voice.speak('First step').then(()=>finished=true);
+await Promise.resolve();assert.equal(finished,false);
+voice.pause();assert.equal(pauses,1);for(let i=0;i<200;i++)timer();assert.equal(errors,0,'watchdog does not expire while paused');
+voice.resume();assert(resumes>=2);utterance.onend();await first;assert.equal(finished,true);assert.equal(timer,null);
+const cancelled=voice.speak('Old step');const stale=utterance.onend;voice.cancel();await cancelled;
+const next=voice.speak('New step');stale();assert.equal(utterance.text,'New step');assert(timer,'stale callback cannot finish new audio');
+voice.setEnabled(false);await next;assert.equal(timer,null);
+voice.setEnabled(true);const failed=voice.speak('Error');utterance.onerror();await failed;assert.equal(errors,1);
+const silent=voice.speak('No browser event');for(let i=0;i<180;i++)timer?.();await silent;assert.equal(errors,2);
+const unsupported=V.create({synth:null,Utterance:null});unsupported.setEnabled(true);await unsupported.speak('No API');assert.equal(unsupported.supported,false);assert.equal(unsupported.enabled,false);
+assert.match(V.words({type:'tone',text:'Lift graphite on the forehead',kind:'lift'}),/eraser/);
+assert.match(V.words({type:'tone',text:'Darken the cheek',kind:'darken'}),/pencil/);
+assert.match(V.words({type:'detail',text:'Blend the cheek',kind:'blend'}),/blending tool/);
+assert.match(V.words({type:'check',name:'jaw'}),/Nothing changes/);
+assert.doesNotMatch(V.words({type:'check',name:'jaw'}),/rust line|green line/i);
+const installed=[{name:'Basic English',lang:'en-US',voiceURI:'basic'},{name:'Young Natural',lang:'en-US',voiceURI:'natural'}];
+let changed;
+const voiceSynth={...synth,getVoices:()=>installed,addEventListener:(event,fn)=>{if(event==='voiceschanged')changed=fn;}};
+const pickerVoice=V.create({synth:voiceSynth,Utterance,setTimer:f=>{timer=f;return 1;},clearTimer:()=>{timer=null;}});
+let refreshed=false;pickerVoice.onVoicesChanged(()=>refreshed=true);changed();assert(refreshed);
+assert.equal(pickerVoice.listVoices().length,2);
+const preview=pickerVoice.speak('Preview',{preview:true});assert.equal(utterance.voice.name,'Young Natural');assert.equal(utterance.rate,1);
+utterance.onend();await preview;
+pickerVoice.setVoice('basic|en-US');const custom=pickerVoice.speak('Another preview',{preview:true});assert.equal(utterance.voice.name,'Basic English');utterance.onend();await custom;
+// Exercise the production narration gate: wait for audio, respect a paused
+// lesson, and stop an invalidated lesson rather than starting its drawing step.
+const html=await readFile(new URL('../public/index.html',import.meta.url),'utf8');
+const code=html.slice(html.indexOf('async function narrateLessonStep('),html.indexOf('const lessonPlay ='));
+let releaseSpeech,releaseFrame;
+const CANCEL=Symbol('cancel'),lesson={paused:false};
+const ctx=vm.createContext({SketchlingLessonVoice:V,lesson,CANCEL,lessonVoice:{speak:()=>new Promise(r=>releaseSpeech=r)},frame:()=>new Promise(r=>releaseFrame=r)});
+vm.runInContext(code,ctx);
+let gateDone=false;const gate=ctx.narrateLessonStep({text:'Move the ear'}, {dead:false}).then(()=>gateDone=true);
+await Promise.resolve();assert.equal(gateDone,false);lesson.paused=true;releaseSpeech();await new Promise(r=>setImmediate(r));assert.equal(gateDone,false);
+lesson.paused=false;releaseFrame();await gate;assert.equal(gateDone,true);
+const tk={dead:false},aborted=ctx.narrateLessonStep({text:'Old instruction'},tk);tk.dead=true;releaseSpeech();await assert.rejects(aborted,e=>e===CANCEL);
+console.log('Voice opt-in, sequencing, pause/resume, mute/cancel, stale callbacks, unavailable audio and narration gate passed.');

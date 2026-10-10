@@ -1,0 +1,16 @@
+# Local credentials and environment
+.env
+.env.*
+!.env.example
+
+# Dependencies, logs and editor files
+node_modules/
+*.log
+.DS_Store
+.idea/
+.vscode/
+coverage/
+
+# Personal uploads and temporary output
+uploads/
+tmp/

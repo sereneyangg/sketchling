@@ -4,6 +4,8 @@ An AI drawing teacher. Upload a photo of your drawing and the reference you drew
 
 ## Layers of teaching (current)
 
+Optional **Voice guidance** appears above the lesson checklist. Pick a voice and use **Preview voice** to hear it, then turn guidance on before Start lesson. The color legend is narrated once per lesson; later narration focuses on each edit. Pause / Resume also pauses / resumes speech; changing uploads, restarting analysis, exiting the lesson or changing stages cancels old narration. Turning voice off stops speech immediately. Enabling it midway through a lesson narrates subsequent steps. Audio is browser text-to-speech, with no additional API key or paid narration service. Voices depend on the browser/device. If speech is unsupported, fails, or does not finish, the visual lesson remains available. Voice starts off on each page load. Browser audio has not been auditioned in this environment; automated tests use a mocked speech service.
+
 After **Analyze drawing** and the line-up, the sidebar shows the teacher's checklist for **V1 · Shape and proportion**. Press **Start lesson**: the teacher works through the list one item at a time on a copy of your drawing, then stops at the end of the stage. **Pause / Resume** at any time. The toolbar's stage tabs switch between **Original · V1 · V2 · V3 · Reference** at the same zoom. Clicking a checklist item zooms to that area.
 
 - **One plan drives everything.** Each item is a measured move from where your line is to where the lined-up reference puts it. The checklist wording, the arrows, the pencil's path and the changed pixels all come from that same move (`public/lesson.js`).
@@ -145,7 +147,7 @@ Main toolbar: Analyze drawing → Create edit → Play edits. Original / Edited 
 
 
 ## Shadow boundary guidance
-Uploaded edit playback now outlines areas to erase on the original sheet (dashed rust), traces the proposed shadow shape (solid green), and compares the complete result. It no longer simulates erasing and repainting during these steps. Boundaries are derived from a 3×3 luminance average, a target-paper-relative shadow threshold, and connected shadow regions containing proposed darkening. Pixel-cell contour tracing preserves concavities and holes; only exactly collinear vertices are removed. Isolated regions smaller than 24 normalized pixels are filtered. Contours accurately follow these computed masks, but their artistic accuracy depends on the generated target and threshold; they are not expert-verified. Regions touching the selected edit box are clipped to that box. The prepared nose example retains its earlier brush demonstration.
+Uploaded edit playback now outlines areas to erase on the original sheet (dashed rust), traces the proposed shadow shape (solid green), and compares the complete result. It no longer simulates erasing and repainting during these steps. Boundaries are derived from a 3×3 luminance average, a target-paper-relative shadow threshold, and connected shadow regions containing proposed darkening. Pixel-cell contour tracing preserves concavities and holes; only exactly collinear vertices are removed. Isolated regions smaller than 24 normalized pixels are filtered. Contours accurately follow these computed masks, but their artistic accuracy depends on the generated target and threshold; they are not expert-verified. Regions touching the selected edit box are clipped to that box.
 
 
 ## Eraser-only demonstration update
@@ -167,7 +169,7 @@ Region navigation works for both tools. Completed passes accumulate within the s
 
 
 ## Natural correction strokes (current)
-Lightening now uses short, continuous eraser passes with eased approach, tapered pressure, and an airborne lift between strokes. Fixed-point grid dabs are removed from uploaded corrections and the prepared nose lesson. The nose lesson breaks its authored curves into short overlapping passes. The prepared eye remains a pencil lesson, with visible approach and lift between its authored strokes.
+Lightening now uses short, continuous eraser passes with eased approach, tapered pressure, and an airborne lift between strokes. Fixed-point grid dabs are removed from uploaded corrections. The prepared eye remains a pencil lesson, with visible approach and lift between its authored strokes.
 
 Uploaded passes follow local directions estimated from the excess-tone mask, use a narrower brush and lighter blending, and work within one nearby patch before pausing. They preserve protected islands and pixels needing the opposite change. The region boundary fades during playback to keep the correction visible. This is raster-based visual guidance; it does not add expert anatomical judgment or fix an incorrect generated target. A short demonstration intentionally shows only part of a large correction area; Edited still displays the full proposal.
 

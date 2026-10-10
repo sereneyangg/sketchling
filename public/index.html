@@ -256,6 +256,7 @@ label.chk{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--mut
 .lesson-sidebar{position:sticky;top:18px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
 .lesson-sidebar .teaching-cards{grid-template-columns:1fr}.lesson-sidebar .fixchips{display:flex;flex-direction:column;align-items:stretch;margin:12px 0}.lesson-sidebar .fixchips button{text-align:left;justify-content:flex-start;border-radius:9px;line-height:1.4}
 .lesson-sidebar .step-choice{width:100%;justify-content:space-between;margin-top:10px}.lesson-sidebar .teaching-card.active{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.final-compare{border-top:1px solid var(--line);margin-top:16px;padding-top:13px}.final-compare .note{margin:5px 0 9px}.final-compare .seg{display:flex}.final-compare button{flex:1;padding:8px 5px;font-size:12px}.final-compare button[aria-pressed="true"]{background:var(--accent);color:#fff}
 .lesson-sidebar h3{font-size:24px;margin:0 0 12px}.visual-caption{background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:12px;margin-top:10px;font-size:14px;line-height:1.6}
 .tp{max-width:none}.wrap{max-width:1320px}.aligning .lesson-sidebar{display:none}.aligning .lesson-workspace{grid-template-columns:1fr}
 @media(max-width:950px){.lesson-workspace{grid-template-columns:1fr}.lesson-sidebar{position:static}}
@@ -274,16 +275,17 @@ body{margin:0;padding:14px 18px;font-size:15px}.wrap{max-width:1380px;gap:10px}
 .lesson-workspace{grid-template-columns:minmax(0,1fr) 320px;gap:16px;align-items:start}
 .lesson-workspace>div{min-width:0;display:flex;flex-direction:column;align-items:center}
 .tp .stagebox{width:min(100%,calc(100dvh - 325px));flex:none;border-radius:10px}
-.lesson-sidebar{position:static;padding:14px;min-width:0}.lesson-sidebar h3{font:500 16px var(--f-ui);text-transform:none;letter-spacing:0;margin:14px 0 8px}
+.lesson-sidebar{position:sticky;top:14px;max-height:calc(100vh - 28px);overflow-y:auto;align-self:start;padding:14px;min-width:0}.lesson-sidebar h3{font:500 16px var(--f-ui);text-transform:none;letter-spacing:0;margin:14px 0 8px}
 .lesson-sidebar .fixchips{margin:0;display:block}.edit-select-label{display:flex;flex-direction:column;gap:5px;font:500 12px var(--f-ui);color:var(--t-muted)}.edit-select-label select{width:100%;font-size:14px;padding:9px;color:var(--t-ink);background:var(--t-bg);border-color:var(--t-line)}
 .lesson-sidebar .teaching-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:0}.teaching-card{padding:0;border:0;background:none!important;box-shadow:none!important}.teaching-card h4,.teaching-card p{display:none}.lesson-sidebar .step-choice{padding:9px 5px;margin:0;justify-content:center;font-size:12px;line-height:1.2;min-height:38px}.teaching-card.active{border:0!important}
+.final-compare{width:100%;border-top:1px solid var(--line);margin-top:16px;padding-top:13px}.final-compare .note{margin:5px 0 9px}.final-compare .seg{display:flex;max-width:360px}.final-compare button{flex:1;padding:8px 5px;font-size:12px}.final-compare button[aria-pressed="true"]{background:var(--accent);color:#fff}.final-compare-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px;width:100%}.final-compare-grid figure{margin:0;min-width:0}.final-compare-grid canvas{display:block;width:100%;height:auto;aspect-ratio:1;border:1px solid var(--t-line);border-radius:8px;background:#fff}.final-compare-grid figcaption{font:600 11px var(--f-ui);color:var(--t-muted);text-align:center;margin-top:5px}
 .current-instruction{font:400 14px/1.55 var(--f-ui);margin:12px 0 0;color:var(--t-ink)}
 .visual-caption{font:400 12px/1.4 var(--f-ui);padding:7px 10px;margin:7px 0 0;width:min(100%,calc(100dvh - 325px));max-height:50px;overflow:auto}
 .lesson-sidebar>.note,.lesson-sidebar>#actSteps,.lesson-sidebar>#fixNote{display:none!important}.more-options{border-top:1px solid var(--t-line);padding-top:10px;margin-top:14px}.more-options summary{font:500 12px var(--f-ui);color:var(--t-muted);cursor:pointer}.more-options>button{margin:10px 0}.more-options .prepared-examples{margin:10px 0}.more-options .prepared-examples button{margin-top:6px;font-size:12px}.more-options .teaching-status{font-size:12px}
 #nextFix{display:none!important}.lesson-workspace .controls{display:none}.lesson-workspace #nice{display:none}.lesson-workspace #teachErr{width:100%;font-size:13px;margin:7px 0}
 .aligning .main-toolbar{display:none}.aligning .lesson-workspace{grid-template-columns:minmax(0,1fr) 320px}.aligning .lesson-sidebar{display:block}.aligning .lesson-sidebar>*{display:none}.aligning .lesson-sidebar::before{content:"Drag the reference to align it with your drawing. Use the controls below the canvas to confirm.";font-size:14px}.aligning .tp .stagebox{width:min(100%,calc(100dvh - 360px))}.alignbar{width:100%;gap:6px!important}.alignbar .fixlabel{font-size:20px!important}.alignbar .tp-foot{padding-top:6px;gap:6px}
 @media(max-width:950px){.lesson-workspace{grid-template-columns:minmax(0,1fr) 290px;gap:10px}.main-toolbar{flex-wrap:wrap}.tp .stagebox{width:min(100%,calc(100dvh - 355px))}.visual-caption{width:100%}}
-@media(max-width:680px){body{padding:10px}.tp{padding:12px}.main-toolbar{position:sticky;top:0;z-index:4;background:var(--t-bg)}.lesson-workspace,.aligning .lesson-workspace{grid-template-columns:1fr}.tp .stagebox{width:min(100%,calc(100dvh - 310px))}.lesson-sidebar{width:100%}.tp-sources{gap:8px}.tile-img{width:34px;height:34px}.tile .seg{gap:3px}.tp .fixlabel{font-size:22px}.primary-actions,.compare-actions{gap:5px}}
+@media(max-width:680px){body{padding:10px}.tp{padding:12px}.main-toolbar{position:sticky;top:0;z-index:4;background:var(--t-bg)}.lesson-workspace,.aligning .lesson-workspace{grid-template-columns:1fr}.tp .stagebox{width:min(100%,calc(100dvh - 310px))}.lesson-sidebar{position:static;max-height:none;overflow:visible;width:100%}.tp-sources{gap:8px}.tile-img{width:34px;height:34px}.tile .seg{gap:3px}.tp .fixlabel{font-size:22px}.primary-actions,.compare-actions{gap:5px}}
 
 .erase-boundary,.shadow-boundary{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:.16;vector-effect:non-scaling-stroke;stroke-width:1.5px}.erase-boundary{stroke:#a85537;stroke-dasharray:5 3}.shadow-boundary{stroke:#245a48}
 .overall-boundary,.overall-boundary-halo{fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}.overall-boundary{stroke:#ac5e2d;stroke-width:1.8px}.overall-boundary-halo{stroke:#fff9eb;stroke-width:4px;transition:opacity .25s}.region-nav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:14px;padding-top:10px;border-top:1px solid var(--t-line)}.region-nav span{font:500 12px var(--f-ui);color:var(--t-muted)}.tp .region-nav button{padding:7px 12px}
@@ -326,6 +328,7 @@ body{margin:0;padding:14px 18px;font-size:15px}.wrap{max-width:1380px;gap:10px}
 <script src="/edit-validation.js"></script>
 <script src="/tutorial-tools.js"></script>
 <script src="/lesson.js"></script>
+<script src="/lesson-voice.js"></script>
 </head>
 <body>
 
@@ -1081,9 +1084,9 @@ function arrowD(a, b, S){
 /* ---------- drawing source + reference ---------- */
 let drawFile = null, refFile = null, editButton = null, playAllButton = null, eraseRegionControls = null;
 function setThumb(img, file){ if(!file){ img.hidden=true; img.removeAttribute("src"); return; } img.src=URL.createObjectURL(file); img.hidden=false; }
-$("drawFile").onchange = e=>{ const f=e.target.files[0]; if(!f) return; ctl?.abort();stageTk=newToken(stageTk);session=null;renderInstructionGuide(null);renderChips();clearShade();refOver(false);setInset(null);drawFile=f; setThumb($("drawThumb"),f); $("drawBtnText").textContent="Replace"; updateButtons(); };
-$("refFile").onchange = e=>{ const f=e.target.files[0]; if(!f) return; ctl?.abort();stageTk=newToken(stageTk);session=null;renderInstructionGuide(null);renderChips();clearShade();refOver(false);setInset(null);refFile=f; setThumb($("refThumb"),f); $("refClear").hidden=false; $("refBtnText").textContent="Replace"; updateButtons(); };
-$("refClear").onclick = ()=>{ ctl?.abort();stageTk=newToken(stageTk);session=null;renderInstructionGuide(null);renderChips();clearShade();refOver(false);setInset(null);refFile=null; $("refFile").value=""; setThumb($("refThumb"),null); $("refClear").hidden=true; $("refBtnText").textContent="Add photo"; updateButtons(); };
+$("drawFile").onchange = e=>{ const f=e.target.files[0]; if(!f) return; stopLesson();setLessonMode(false);ctl?.abort();stageTk=newToken(stageTk);session=null;renderInstructionGuide(null);renderChips();clearShade();refOver(false);setInset(null);drawFile=f; setThumb($("drawThumb"),f); $("drawBtnText").textContent="Replace"; updateButtons(); };
+$("refFile").onchange = e=>{ const f=e.target.files[0]; if(!f) return; stopLesson();setLessonMode(false);ctl?.abort();stageTk=newToken(stageTk);session=null;renderInstructionGuide(null);renderChips();clearShade();refOver(false);setInset(null);refFile=f; setThumb($("refThumb"),f); $("refClear").hidden=false; $("refBtnText").textContent="Replace"; updateButtons(); };
+$("refClear").onclick = ()=>{ stopLesson();setLessonMode(false);ctl?.abort();stageTk=newToken(stageTk);session=null;renderInstructionGuide(null);renderChips();clearShade();refOver(false);setInset(null);refFile=null; $("refFile").value=""; setThumb($("refThumb"),null); $("refClear").hidden=true; $("refBtnText").textContent="Add photo"; updateButtons(); };
 
 /* ---------- Claude ---------- */
 const COPY = {
@@ -1139,11 +1142,11 @@ function setBusy(on, text){
 }
 function updateButtons(){
   const f = session?.fixes[session.cur];
-  const drawn = f?.kind === "value" || f?.kind === "targetEdit" || f?.kind === "uploadedEdit" || !!f?.sketch || (f?.strokes || []).length > 0;
+  const drawn = f?.kind === "value" || f?.kind === "uploadedEdit" || !!f?.sketch || (f?.strokes || []).length > 0;
   const hasDrawing = !!drawFile && !!refFile;
   $("showMe").disabled = busy || !canSee() || !hasDrawing;
   $("showMe").textContent = session ? "Analyze again" : "Analyze drawing";
-  const editable=["uploadedEdit","targetEdit","preparedEye"].includes(f?.kind);
+  const editable=["uploadedEdit","preparedEye"].includes(f?.kind);
   const demonstrationIssue=SketchlingValidation.demonstrationIssue(f);
   $("replay").disabled = busy || !editable || !!demonstrationIssue;
   $("vBefore").disabled=busy||!f;$("vRef").disabled=busy||!f?.refWarpUrl;$("vAfter").disabled=busy||!editable;$("vProposal").hidden=f?.kind!=="uploadedEdit";$("vProposal").disabled=busy||f?.kind!=="uploadedEdit";
@@ -1181,7 +1184,6 @@ function paintState(f, v){
   selectDrawingView(v,f);
   const svg = $("stageSvg"); svg.textContent = ""; clearShade(); refOver(v === "ref");
   if(f.kind==="uploadedEdit"){if(v==="after"||v==="proposal")paintUploadedEdit(f,v);$("cam").classList.remove("faded");$("visualCaption").textContent=uploadedViewCaption(f,v);return;}
-  if(f.kind==="targetEdit"){if(v==="after")paintTargetEdit(f);return;}
   if(f.kind==="preparedEye"){if(v==="after")addStatic(svg,preparedPaths.flat(),()=>"prepared-pencil");return;}
   if (f.kind === "value"){ $("cam").classList.remove("faded"); if (v === "after") f.steps.forEach(s => paintStepInstant(s)); return; }
   $("cam").classList.toggle("faded", v === "after");
@@ -1418,49 +1420,7 @@ preparedButton.onclick=async()=>{
   }catch(e){showErr("The prepared portrait could not load. Run this folder with npm start.");}
 };
 
-// Target-driven local brush playback. This example uses a prepared, accepted target.
-const nosePaths=[
- [[[250,373],[240,406],[235,446],[244,474],[260,490]],[[395,376],[411,414],[423,443],[418,470],[402,490]],[[370,390],[370,415],[380,434]],[[285,480],[306,492],[337,496]]],
- [[[277,489],[289,484],[303,491]],[[359,494],[374,486],[393,489]],[[306,503],[329,514],[348,507]]],
- Array.from({length:13},(_,i)=>[[355+i*3,280+i*9],[359+i*3,318+i*9],[366+i*3,350+i*9]])
-];
-function noseStamp(f,x,y,r,kind,strength=.24){
- const w=f.preview.width,h=f.preview.height;
- for(let yy=Math.max(0,Math.floor(y-r));yy<Math.min(h,Math.ceil(y+r));yy++)for(let xx=Math.max(0,Math.floor(x-r));xx<Math.min(w,Math.ceil(x+r));xx++){
-  const d=Math.hypot(xx-x,yy-y)/r;if(d>=1)continue;const i=(yy*w+xx)*4;
-  const old=f.before[i]*.2126+f.before[i+1]*.7152+f.before[i+2]*.0722,goal=f.goal[i]*.2126+f.goal[i+1]*.7152+f.goal[i+2]*.0722;
-  if(kind===0?goal<=old:goal>=old)continue;
-  for(let c=0;c<3;c++)f.state[i+c]+=(f.goal[i+c]-f.state[i+c])*(1-d)*strength;
- }
-}
-function paintTargetEdit(f){const ctx=f.preview.getContext("2d"),pixels=ctx.createImageData(f.preview.width,f.preview.height);pixels.data.set(f.state);ctx.putImageData(pixels,0,0);shadeCtx().drawImage(f.preview,0,0,100*SC,100*SC);}
-function noseActions(k){return nosePaths[k].flatMap(path=>SketchlingEdits.strokeActions(path,k===0?'eraser':'pencil',k===0?5:k===1?5:8,30));}
-function applyNoseSample(f,k,action,i){const [x,y]=action.points[i];noseStamp(f,x,y,action.radius,k,action.strength*SketchlingEdits.strokePressure(i/(action.points.length-1)));}
-async function playTargetEdit(f,k,tk){
- f.state=new Float64Array(f.before);
- document.querySelectorAll(".teaching-card").forEach((el,i)=>el.classList.toggle("active",i===k));syncCurrentInstruction(f,k);
- const g=instructionGuide(f);$("visualCaption").textContent=[g.look,g.try,g.compare][k];
- for(let j=0;j<k;j++)for(const action of noseActions(j))for(let i=0;i<action.points.length;i++)applyNoseSample(f,j,action,i);
- paintTargetEdit(f);
- try{
-  await playToolActions(noseActions(k),k===0?'eraser':'pencil',tk,p=>[p[0]/615*100,p[1]/705*100],(action,i)=>applyNoseSample(f,k,action,i),()=>paintTargetEdit(f));
-  if(!tk.dead)$("visualCaption").textContent+=" One gentle pass complete. Compare before adding another.";
- }catch(e){if(e!==CANCEL)showErr("Could not play this prepared step.");}
-}
-const noseButton=document.createElement("button");noseButton.className="primary";noseButton.textContent="Try nose edit lesson";preparedButton.after(noseButton);
-const examples=document.createElement("details"),examplesTitle=document.createElement("summary");examplesTitle.textContent="Prepared examples";examples.className="prepared-examples";examples.append(examplesTitle);document.querySelector(".tp-head").after(examples);examples.append(preparedButton,noseButton);
-noseButton.onclick=async()=>{
- stopJawPicker();stageTk=newToken(stageTk);const tk=stageTk;showErr("");
- try{
-  const img=new Image();img.src="prepared-nose-comparison.png";await img.decode();if(tk.dead)return;
-  function crop(x,w){const c=document.createElement("canvas");c.width=615;c.height=705;c.getContext("2d").drawImage(img,x,74,w,705,0,0,615,705);return c;}
-  const original=crop(15,615),target=crop(1253,615),reference=crop(649,586),canvas=blankSheet();canvas.getContext("2d").drawImage(original,0,0,1000,1000);
-  const refCanvas=blankSheet();refCanvas.getContext("2d").drawImage(reference,0,0,1000,1000);
-  const base={kind:"prepared",canvas,url:URL.createObjectURL(await toBlob(canvas,"image/png"))},refWarpUrl=URL.createObjectURL(await toBlob(refCanvas,"image/png"));if(tk.dead){URL.revokeObjectURL(base.url);URL.revokeObjectURL(refWarpUrl);return;}
-  const f={kind:"targetEdit",label:"Nose · soften and rebuild",base,refWarpUrl,region:{x:26,y:30,w:53,h:49},status:"example",preview:crop(15,615),before:original.getContext("2d").getImageData(0,0,615,705).data,goal:target.getContext("2d").getImageData(0,0,615,705).data};f.state=new Float64Array(f.before);
-  session={fixes:[f],cur:0,refWarpUrl};await playFix(0);
- }catch(e){showErr("The prepared nose lesson could not load. Run this folder with npm start.");}
-};
+const examples=document.createElement("details"),examplesTitle=document.createElement("summary");examplesTitle.textContent="Prepared example";examples.className="prepared-examples";examples.append(examplesTitle);document.querySelector(".tp-head").after(examples);examples.append(preparedButton);
 
 // Real-upload edits use the original sheet as the base, never a prepared crop.
 editButton=document.createElement("button");editButton.className="primary";editButton.textContent="Draw this correction";sideTitle.after(editButton);
@@ -1476,7 +1436,7 @@ async function downloadDrawing(which){
 }
 downloadEdit.onclick=()=>downloadDrawing('after');downloadProposal.onclick=()=>downloadDrawing('proposal');
 function updateEditControls(f){
- if(!editButton)return;const eligible=!!(f?.base?.canvas&&f.refWarpUrl&&!['preparedEye','targetEdit'].includes(f.kind));
+ if(!editButton)return;const eligible=!!(f?.base?.canvas&&f.refWarpUrl&&f.kind!=='preparedEye');
  editButton.hidden=editHint.hidden=!eligible;editButton.disabled=busy;editButton.textContent=f?.kind==="uploadedEdit"?"Regenerate edit":"Create edit";
  targetButton.hidden=true;downloadEdit.hidden=downloadProposal.hidden=f?.kind!=="uploadedEdit";targetButton.disabled=downloadEdit.disabled=downloadProposal.disabled=busy;
 }
@@ -1632,7 +1592,6 @@ async function showInstructionStep(k){
   const svg=$("stageSvg");svg.textContent="";clearShade();refOver(false);$("cam").classList.remove("faded");setStageImage(f.base.url);setCam(camFor(f.kind==="uploadedEdit"?(f.viewRegion||f.region):f.region));
   selectDrawingView("after",f);
   if(f.kind==="uploadedEdit")return playUploadedEdit(f,k,tk);
-  if(f.kind==="targetEdit")return playTargetEdit(f,k,tk);
   if(f.kind==="preparedEye")return playPreparedEye(f,k,tk);
   const g=instructionGuide(f);$("visualCaption").textContent=[g.look,g.try,g.compare][k];
   document.querySelectorAll(".teaching-card").forEach((el,i)=>el.classList.toggle("active",i===k));
@@ -1660,7 +1619,6 @@ for(const [i,card] of [...document.querySelectorAll(".teaching-card")].entries()
 function instructionGuide(f){
   const issue=SketchlingValidation.demonstrationIssue(f);if(issue)return {look:issue,try:issue,compare:"No automatic brow strokes are applied. Use Original, AI proposal and Reference to compare the brow shape."};
   if(f.kind==="uploadedEdit")return {look:"Use the narrow edge of your eraser. Follow the excess mark with a short, light stroke, ease off at the end, then lift to reposition. Work on the demonstrated patch first; keep the pale gaps open. Stop and compare before removing more graphite.",try:"Follow the outlined darkening area in "+(f.featureName||f.label)+", then watch the pencil make short strokes and lift between them. Build a light layer inside the guide; keep the highlights open. Pause and compare before adding more.",compare:"This is your drawing after the demonstrated strokes, with the guides removed. Toggle Original to see what changed, then Reference to judge the shape. AI proposal shows the full generated suggestion separately. A light pass may leave more work to do."};
-  if(f.kind==="targetEdit")return {look:"Soften the heavy nose outline with the narrow eraser edge. Follow a short section of the curve with light pressure, ease off, and lift. Keep some graphite so the nose edge stays soft. Compare after this pass.",try:"Place short, dark marks for the two nostril openings and the shadow beneath the tip. Lift the pencil between marks; leave the bridge highlight open.",compare:"Build the viewer-right side shadow with overlapping light passes. Compare the grouped shadow with the reference, then toggle Original to inspect the change."};
   if(f.kind==="preparedEye")return {look:"Place two light endpoint marks at the existing eye corners. The iris and lower lid stay unchanged.",try:"Connect the corners with three short, light strokes: rise toward the middle, then slope down toward the inner corner. Watch the pencil lift between sections.",compare:"Reinforce only the middle upper-lid segment with one light pass. Leave the corners softer. Use Original to compare afterward."};
   const n=String(f.featureName || f.label || "this area").toLowerCase();
   if(f.kind==="value") return {
@@ -1677,17 +1635,17 @@ function instructionGuide(f){
 }
 function renderInstructionGuide(f){
   if(eraseRegionControls)eraseRegionControls.hidden=true;
-  document.querySelectorAll(".teaching-card h4").forEach((el,i)=>el.textContent=f?.kind==="uploadedEdit" ? ["1 · Lighten with an eraser","2 · Darken with a pencil","3 · Compare the result"][i] : f?.kind==="targetEdit" ? ["1 · Lift the hard outline","2 · Draw nostril shadows","3 · Build the side shadow"][i] : f?.kind==="preparedEye" ? ["1 · Mark the endpoints","2 · Connect with light strokes","3 · Reinforce selectively"][i] : ["1 · Look for","2 · Try on paper","3 · Compare"][i]);
-  document.querySelectorAll(".step-choice").forEach((b,i)=>b.textContent=f?.kind==="uploadedEdit" ? ["Watch erasing →","Watch pencil strokes →","Compare result →"][i] : f?.kind==="targetEdit" ? ["Show eraser passes →","Draw short pencil marks →","Build light shading →"][i] : f?.kind==="preparedEye" ? ["Draw endpoint marks →","Draw three short strokes →","Add the light second pass →"][i] : ["Show comparison area →","Show this action →","Compare reference →"][i]);
+  document.querySelectorAll(".teaching-card h4").forEach((el,i)=>el.textContent=f?.kind==="uploadedEdit" ? ["1 · Lighten with an eraser","2 · Darken with a pencil","3 · Compare the result"][i] : f?.kind==="preparedEye" ? ["1 · Mark the endpoints","2 · Connect with light strokes","3 · Reinforce selectively"][i] : ["1 · Look for","2 · Try on paper","3 · Compare"][i]);
+  document.querySelectorAll(".step-choice").forEach((b,i)=>b.textContent=f?.kind==="uploadedEdit" ? ["Watch erasing →","Watch pencil strokes →","Compare result →"][i] : f?.kind==="preparedEye" ? ["Draw endpoint marks →","Draw three short strokes →","Add the light second pass →"][i] : ["Show comparison area →","Show this action →","Compare reference →"][i]);
   $("teachingGuide").hidden=!f;
-  const editable=["uploadedEdit","targetEdit","preparedEye"].includes(f?.kind);
+  const editable=["uploadedEdit","preparedEye"].includes(f?.kind);
   document.querySelector(".teaching-cards").hidden=!editable;
   if(!f){$("viewBadge").hidden=true;return;}
   if(!editable){$("currentInstruction").textContent=f.editScopeError||(f.refWarpUrl?"Choose an area, then click Create edit. This comparison has not generated a correction yet.":"Add a reference and analyze your drawing to create an edit.");$("teachingStatus").textContent="Comparison only · no generated correction yet.";return;}
   const g=instructionGuide(f);syncCurrentInstruction(f,0);
   $("guideLook").textContent=g.look;$("guideTry").textContent=g.try;$("guideCompare").textContent=g.compare;
-  document.querySelectorAll(".step-choice").forEach((b,i)=>{if(f.kind==="uploadedEdit")b.textContent=["1 · Lighten","2 · Darken","3 · Result"][i];else if(f.kind==="targetEdit")b.textContent=["1 · Erase","2 · Draw","3 · Shade"][i];});
-  $("teachingStatus").textContent=f.kind==="uploadedEdit" ? "Your edits records the strokes applied to your drawing. AI proposal is the generated suggestion; Reference is your source photo. Check the shape against the reference before copying an edit on paper." : f.kind==="targetEdit" ? "Prepared nose example · brush masks reveal an accepted generated target. Both images are generated crops, not the exact uploaded pixels. New uploads do not yet receive this correction automatically." : f.kind==="preparedEye" ? "Prepared demonstration on your portrait · manually placed marks, not an AI diagnosis or expert-verified correction." : f.status==="passed" ? "Comparison completed. Keep using the reference to assess your drawing." : f.kind==="value" ? "Suggested tone exercise · confirm the patch before changing your paper." : f.sure ? "The image comparison suggests a difference. Confirm it visually before redrawing." : "Comparison exercise · no clear shape correction was established. Keep the drawing as it is unless you can see a specific difference.";
+  document.querySelectorAll(".step-choice").forEach((b,i)=>{if(f.kind==="uploadedEdit")b.textContent=["1 · Lighten","2 · Darken","3 · Result"][i];});
+  $("teachingStatus").textContent=f.kind==="uploadedEdit" ? "Your edits records the strokes applied to your drawing. AI proposal is the generated suggestion; Reference is your source photo. Check the shape against the reference before copying an edit on paper." : f.kind==="preparedEye" ? "Prepared demonstration on your portrait · manually placed marks, not an AI diagnosis or expert-verified correction." : f.status==="passed" ? "Comparison completed. Keep using the reference to assess your drawing." : f.kind==="value" ? "Suggested tone exercise · confirm the patch before changing your paper." : f.sure ? "The image comparison suggests a difference. Confirm it visually before redrawing." : "Comparison exercise · no clear shape correction was established. Keep the drawing as it is unless you can see a specific difference.";
 }
 async function playFix(i, from=0){
   const f = session.fixes[i]; session.cur = i;
@@ -1699,7 +1657,7 @@ async function playFix(i, from=0){
   const svg = $("stageSvg"), cam = $("cam");
   svg.textContent = ""; setStageImage(f.base.url); setInset(f); markSteps(f, -1, 0);
   $("fixNote").hidden = f.kind !== "value";
-  if(!["uploadedEdit","targetEdit","preparedEye"].includes(f.kind)){
+  if(!["uploadedEdit","preparedEye"].includes(f.kind)){
     clearShade();refOver(false);setCam(camFor(f.region));selectDrawingView("before",f);
     visualTarget(f,"Comparison area");$("visualCaption").textContent="Compare Original and Reference, then choose Create edit to generate a correction.";return;
   }
@@ -1878,6 +1836,7 @@ async function checkRef(f, attempt){
 // Pass 1: decide what to fix and where.
 $("showMe").onclick = async () => {
   await ready; if (!canSee()) return;
+  stopLesson();setLessonMode(false);
   showErr("");
   let base;
   try { base = await snapshot("photo", drawFile); }
@@ -1997,6 +1956,11 @@ const lessonBox = document.createElement("section"); lessonBox.id = "lesson"; le
 lessonBox.innerHTML = `
   <p class="tp-eyebrow" id="lessonStage">Stage 1 of 3 · Shape and proportion</p>
   <p class="note lesson-done" id="lessonDone" hidden></p>
+  <label class="chk"><input type="checkbox" id="lessonVoice"> Voice guidance</label>
+  <label class="note" for="lessonVoiceChoice">Voice</label>
+  <select id="lessonVoiceChoice" aria-label="Choose narration voice"><option value="">Automatic</option></select>
+  <button type="button" id="lessonVoicePreview">Preview voice</button>
+  <span class="note" id="voiceNotice" role="status"></span>
   <ol class="checklist" id="lessonList" aria-label="Teacher's checklist"></ol>
   <label class="chk lesson-small" id="lessonSmallRow"><input type="checkbox" id="lessonSmall"> Show smaller differences</label>
   <p class="lesson-status" id="lessonStatus" aria-live="polite"></p>
@@ -2006,6 +1970,57 @@ lessonBox.innerHTML = `
     <p class="note" id="lessonNextText"></p>
   </div>`;
 sidebar.prepend(lessonBox);
+const finalCompare=document.createElement("div");finalCompare.className="final-compare";finalCompare.hidden=true;finalCompare.setAttribute("aria-label","Compare finished lesson");
+const finalCompareTitle=document.createElement("p");finalCompareTitle.className="tp-eyebrow";finalCompareTitle.textContent="Finished lesson · compare";
+const finalCompareText=document.createElement("p");finalCompareText.className="note";finalCompareText.textContent="See where you started, what Sketchling changed, or the reference.";
+const finalCompareButtons=document.createElement("div");finalCompareButtons.className="seg toggle";
+const finalCompareOriginal=document.createElement("button");finalCompareOriginal.textContent="Original";
+const finalCompareModified=document.createElement("button");finalCompareModified.textContent="Modified";
+const finalCompareReference=document.createElement("button");finalCompareReference.textContent="Reference";
+finalCompareButtons.append(finalCompareOriginal,finalCompareModified,finalCompareReference);finalCompare.append(finalCompareTitle,finalCompareText,finalCompareButtons);
+const finalCompareGrid=document.createElement("div");finalCompareGrid.className="final-compare-grid";
+const finalCompareCards={};
+for(const [key,label] of [['original','Original'],['modified','Modified'],['reference','Reference']]){
+ const card=document.createElement('figure'),canvas=document.createElement('canvas'),caption=document.createElement('figcaption');canvas.width=canvas.height=300;caption.textContent=label;card.append(canvas,caption);finalCompareGrid.append(card);finalCompareCards[key]=canvas;
+}
+finalCompare.append(finalCompareGrid);drawingPane.append(finalCompare);
+function renderFinalComparison(){
+ if(!lesson)return;
+ const sources={original:lesson.base.canvas,modified:lesson.cv,reference:lesson.warped};
+ for(const [key,canvas] of Object.entries(finalCompareCards)){const ctx=canvas.getContext('2d');ctx.clearRect(0,0,300,300);if(sources[key])ctx.drawImage(sources[key],0,0,300,300);}
+}
+function showFinalCompare(which){
+ if(!lesson||lesson.playing)return;
+ const target=which==='original'?'orig':which==='reference'?'ref':workView();
+ lessonView(target,false,true);
+ renderFinalComparison();
+ finalCompareOriginal.setAttribute('aria-pressed',String(which==='original'));finalCompareModified.setAttribute('aria-pressed',String(which==='modified'));finalCompareReference.setAttribute('aria-pressed',String(which==='reference'));
+}
+finalCompareOriginal.onclick=()=>showFinalCompare('original');finalCompareModified.onclick=()=>showFinalCompare('modified');finalCompareReference.onclick=()=>showFinalCompare('reference');
+const lessonVoice = SketchlingLessonVoice.create({onError:()=>{ $("voiceNotice").textContent="Voice unavailable. The lesson will continue without audio."; }});
+function refreshLessonVoices(){
+ const picker=$("lessonVoiceChoice"),chosen=picker.value;
+ picker.replaceChildren(new Option("Automatic",""),...lessonVoice.listVoices().map(v=>new Option(`${v.name} (${v.lang})`,v.id)));
+ picker.value=[...picker.options].some(o=>o.value===chosen)?chosen:"";
+ lessonVoice.setVoice(picker.value);
+}
+lessonVoice.onVoicesChanged(refreshLessonVoices);refreshLessonVoices();
+$("lessonVoiceChoice").onchange=e=>lessonVoice.setVoice(e.target.value);
+$("lessonVoicePreview").onclick=()=>lessonVoice.speak("Let's start with the shape. I'll show you one change at a time.",{preview:true});
+$("lessonVoice").disabled=!lessonVoice.supported;
+$("lessonVoiceChoice").disabled=!lessonVoice.supported;
+$("lessonVoicePreview").disabled=!lessonVoice.supported;
+if(!lessonVoice.supported)$("voiceNotice").textContent="Voice is not supported in this browser.";
+$("lessonVoice").onchange=e=>{
+  lessonVoice.setEnabled(e.target.checked);$("voiceNotice").textContent="";
+};
+window.addEventListener("pagehide",()=>lessonVoice.cancel());
+async function narrateLessonStep(e,tk){
+  await lessonVoice.speak(SketchlingLessonVoice.words(e));
+  while(lesson.paused&&!tk.dead)await frame();
+  if(tk.dead)throw CANCEL;
+}
+
 const lessonPlay = document.createElement("button"); lessonPlay.className = "primary"; lessonPlay.id = "lessonPlay"; lessonPlay.textContent = "Start lesson"; lessonPlay.hidden = true;
 const lessonSkip = document.createElement("button"); lessonSkip.id = "lessonSkip"; lessonSkip.textContent = "Skip to V2"; lessonSkip.hidden = true;
 primaryActions.insertBefore(lessonPlay, editButton); lessonPlay.after(lessonSkip);
@@ -2025,8 +2040,9 @@ function setLessonMode(on){
   $("teachPanel").classList.toggle("lesson-mode", on);
   lessonBox.hidden = lessonPlay.hidden = stageTabs.hidden = !on;
   if (!on) lessonSkip.hidden = true;
+  finalCompare.hidden=true;
 }
-function stopLesson(){ if (lessonTk) lessonTk.dead = true; if (lesson){ lesson.playing = false; lesson.paused = false; } }
+function stopLesson(){ lessonVoice.cancel(); if (lessonTk) lessonTk.dead = true; if (lesson){ lesson.playing = false; lesson.paused = false; } }
 const lessonCtx = () => lesson.cv.getContext("2d");
 const workView = () => "v" + lesson.stage;
 const copyCanvas = c => { const d = blankSheet(); d.getContext("2d").drawImage(c, 0, 0); return d; };
@@ -2075,6 +2091,7 @@ function renderChecklist(){
 function setLessonStatus(t, keep=true){ $("lessonStatus").textContent = t; if (keep && lesson) lesson.status = t; }
 function updateLessonButtons(){
   if (!lesson) return;
+  $("lessonVoicePreview").disabled=!lessonVoice.supported||lesson.playing;
   const s = lesson.stage, toNext = s < 3 && lesson.finished && !lesson.playing;
   lessonPlay.disabled = !lesson.items.length && !toNext;
   lessonPlay.textContent = lesson.playing ? (lesson.paused ? "Resume" : "Pause") : toNext ? `Start V${s+1} · ${STAGE_NAME[s+1]}` : lesson.finished ? `Replay V${s}` : s > 1 ? `Start V${s}` : "Start lesson";
@@ -2249,13 +2266,22 @@ const demonstrateTone = (e, i, tk) => demonstratePaint(e, i, tk, src => tonePain
 const demonstrateDetail = (e, i, tk) => demonstratePaint(e, i, tk, src => detailPaint(e, src));
 async function playLesson(){
   stopLesson(); lessonTk = {dead:false}; const tk = lessonTk;
+  finalCompare.hidden=true;
   // every run of a stage starts from the previous stage's result, so each stage is exactly its listed edits
   lessonCtx().drawImage(lesson.stage === 1 ? lesson.base.canvas : lesson[`v${lesson.stage - 1}cv`], 0, 0);
   Object.assign(lesson, { playing: true, paused: false, started: true, finished: false, done: new Set(), active: -1 });
   lessonView(workView(), true); renderChecklist(); updateLessonButtons();
   try {
+    if(lessonVoice.enabled&&!lesson.legendSpoken){
+      lesson.legendSpoken=true;
+      await lessonVoice.speak("Before we start: the rust line is yours, and the green line is the reference.");
+      while(lesson.paused&&!tk.dead)await frame();
+      if(tk.dead)throw CANCEL;
+    }
     for (let i = 0; i < lesson.items.length; i++){
       const e = lesson.items[i];
+      lesson.active=i;renderChecklist();setLessonStatus(`Now: ${e.text}. ${e.detail||""}`);
+      await narrateLessonStep(e,tk);
       await (e.type === "check" ? check(e, i, tk) : e.type === "tone" ? demonstrateTone(e, i, tk) : e.type === "detail" ? demonstrateDetail(e, i, tk) : demonstrate(e, i, tk));
     }
     lesson.finished = true;
@@ -2266,11 +2292,12 @@ async function playLesson(){
     else setLessonStatus(`Stage 3 is done: ${n} finishing touch${n > 1 ? "es" : ""} demonstrated on top of V2. Compare Original, V3 and Reference: that's the whole lesson.`);
     lesson.focus = null; setCam({s:1,tx:0,ty:0});
   } catch (err) { if (err !== CANCEL) { console.error(err); showErr("The lesson stopped unexpectedly. Press Start to try again."); } }
-  finally { if (!tk.dead){ lesson.playing = false; lesson.paused = false; lessonView(workView(), true); updateLessonButtons(); } }
+  finally { if (!tk.dead){ lesson.playing = false; lesson.paused = false; lessonView(workView(), true); updateLessonButtons(); if(lesson.finished){finalCompare.hidden=false;showFinalCompare('modified');} } }
 }
 function togglePause(){
   if (!lesson?.playing) return;
   lesson.paused = !lesson.paused;
+  if(lesson.paused)lessonVoice.pause();else lessonVoice.resume();
   if (!lesson.paused && lesson.view !== workView()) lessonView(workView(), true);
   setLessonStatus(lesson.paused ? "Paused. Look at the change, or try it on paper, then press Resume." : lesson.status || "", false);
   updateLessonButtons();
