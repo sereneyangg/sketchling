@@ -1,0 +1,14 @@
+{
+  "name": "sketchling",
+  "version": "0.1.0",
+  "description": "AI drawing teacher: step-by-step lessons, a practice pad, and critiques of your drawings.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/*.test.mjs"
+  }
+}
